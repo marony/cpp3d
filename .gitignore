@@ -1,0 +1,8 @@
+*.suo
+*.user
+*.psess
+*.sdf
+Debug/
+Release/
+ipch/
+Thumbs.db
