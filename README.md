@@ -4,4 +4,4 @@
 
 　[Scala版](https://github.com/marony/scala3d_wireframe)を移植してみました。
 
-![動画](/resources/Video_2015-03-29_182211.gif)
+![動画](resources/Video_2015-03-29_182211.gif)
