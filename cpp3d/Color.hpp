@@ -3,23 +3,23 @@ class Color
 {
 public:
 	Color(int r = 0, int g = 0, int b = 0)
-		: _r{ r }, _g{ g }, _b{ b }
+		: r_{ r }, g_{ g }, b_{ b }
 	{
 	}
 
-	double	getR() const
+	double	get_r() const
 	{
-		return	_r;
+		return	r_;
 	}
-	double	getG() const
+	double	get_g() const
 	{
-		return	_g;
+		return	g_;
 	}
-	double	getB() const
+	double	get_b() const
 	{
-		return	_b;
+		return	b_;
 	}
 
 protected:
-	int	_r, _g, _b;
+	int	r_, g_, b_;
 };

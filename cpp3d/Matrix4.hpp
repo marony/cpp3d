@@ -16,7 +16,7 @@ public:
 	{
 		auto i = 0;
 		for (auto iter = init.begin(); iter != init.end() && i < SIZE; ++iter, ++i)
-			_elements[i] = *iter;
+			elements_[i] = *iter;
 	}
 
 	// s—ñ“¯m‚Ì‰ÁZ
@@ -34,6 +34,6 @@ public:
 
 protected:
 	static const int	SIZE = 4 * 4;
-	double	_elements[SIZE];
+	double	elements_[SIZE];
 };
 

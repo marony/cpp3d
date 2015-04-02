@@ -6,15 +6,15 @@
 Polygon3	Camera::convertToView(const Polygon3& polygon) const
 {
 	auto	z = direction().normalize();
-	auto	x = _up.crossProduct(z).normalize();
+	auto	x = up_.crossProduct(z).normalize();
 	auto	y = z.crossProduct(x).normalize();
-	auto	tx = static_cast<Vector3>(getPosition()).dotProduct(x) * -1;
-	auto	ty = static_cast<Vector3>(getPosition()).dotProduct(y) * -1;
-	auto	tz = static_cast<Vector3>(getPosition()).dotProduct(z) * -1;
+	auto	tx = static_cast<Vector3>(get_position()).dotProduct(x) * -1;
+	auto	ty = static_cast<Vector3>(get_position()).dotProduct(y) * -1;
+	auto	tz = static_cast<Vector3>(get_position()).dotProduct(z) * -1;
 	auto	matrix = Matrix4 {
-		x.getX(), x.getY(), x.getZ(), tx,
-		y.getX(), y.getY(), y.getZ(), ty,
-		z.getX(), z.getY(), z.getZ(), tz,
+		x.get_x(), x.get_y(), x.get_z(), tx,
+		y.get_x(), y.get_y(), y.get_z(), ty,
+		z.get_x(), z.get_y(), z.get_z(), tz,
 		0, 0, 0, 1
 	};
 	auto	polygon2 = polygon.affin(matrix);
@@ -25,10 +25,10 @@ Polygon3	Camera::convertToView(const Polygon3& polygon) const
 Point3	Camera::projection(const Point3& point, const Screen& screen) const
 {
 	return	{
-		_near * 2 * point.getX() / screen.getSize().getWidth(),
-		_near * 2 * point.getY() / screen.getSize().getHeight(),
-		(_far + _near) * point.getZ() / (_far - _near) + (2 * _near * _far) / (_far - _near),
-		(2 * _near * _far) * point.getW() / (_far - _near)
+		near_ * 2 * point.get_x() / screen.get_size().get_width(),
+		near_ * 2 * point.get_y() / screen.get_size().get_height(),
+		(far_ + near_) * point.get_z() / (far_ - near_) + (2 * near_ * far_) / (far_ - near_),
+		(2 * near_ * far_) * point.get_w() / (far_ - near_)
 	};
 }
 
@@ -36,17 +36,17 @@ Point3	Camera::projection(const Point3& point, const Screen& screen) const
 Polygon3	Camera::projection(const Polygon3& polygon, const Screen& screen) const
 {
 	return	{
-		projection(polygon.getP1(), screen),
-		projection(polygon.getP2(), screen),
-		projection(polygon.getP3(), screen)
+		projection(polygon.get_p1(), screen),
+		projection(polygon.get_p2(), screen),
+		projection(polygon.get_p3(), screen)
 	};
 }
 
 Polygon3	Camera::perspective(const Polygon3& polygon) const
 {
 	return	{
-		polygon.getP1() / polygon.getP1().getW(),
-		polygon.getP2() / polygon.getP2().getW(),
-		polygon.getP3() / polygon.getP3().getW()
+		polygon.get_p1() / polygon.get_p1().get_w(),
+		polygon.get_p2() / polygon.get_p2().get_w(),
+		polygon.get_p3() / polygon.get_p3().get_w()
 	};
 }

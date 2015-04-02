@@ -6,30 +6,30 @@
 // çsóÒìØémÇÃâ¡éZ
 Matrix4	Matrix4::operator+(const Matrix4& rhs) const
 {
-	return{ _elements[0] + rhs._elements[0], _elements[1] + rhs._elements[1], _elements[2] + rhs._elements[2], _elements[3] + rhs._elements[3],
-		_elements[4] + rhs._elements[4], _elements[5] + rhs._elements[5], _elements[6] + rhs._elements[6], _elements[7] + rhs._elements[7],
-		_elements[8] + rhs._elements[8], _elements[9] + rhs._elements[9], _elements[10] + rhs._elements[10], _elements[11] + rhs._elements[11],
-		_elements[12] + rhs._elements[12], _elements[13] + rhs._elements[13], _elements[14] + rhs._elements[14], _elements[15] + rhs._elements[15]
+	return{ elements_[0] + rhs.elements_[0], elements_[1] + rhs.elements_[1], elements_[2] + rhs.elements_[2], elements_[3] + rhs.elements_[3],
+		elements_[4] + rhs.elements_[4], elements_[5] + rhs.elements_[5], elements_[6] + rhs.elements_[6], elements_[7] + rhs.elements_[7],
+		elements_[8] + rhs.elements_[8], elements_[9] + rhs.elements_[9], elements_[10] + rhs.elements_[10], elements_[11] + rhs.elements_[11],
+		elements_[12] + rhs.elements_[12], elements_[13] + rhs.elements_[13], elements_[14] + rhs.elements_[14], elements_[15] + rhs.elements_[15]
 	};
 }
 
 // çsóÒìØémÇÃå∏éZ
 Matrix4	Matrix4::operator-(const Matrix4& rhs) const
 {
-	return{ _elements[0] - rhs._elements[0], _elements[1] - rhs._elements[1], _elements[2] - rhs._elements[2], _elements[3] - rhs._elements[3],
-		_elements[4] - rhs._elements[4], _elements[5] - rhs._elements[5], _elements[6] - rhs._elements[6], _elements[7] - rhs._elements[7],
-		_elements[8] - rhs._elements[8], _elements[9] - rhs._elements[9], _elements[10] - rhs._elements[10], _elements[11] - rhs._elements[11],
-		_elements[12] - rhs._elements[12], _elements[13] - rhs._elements[13], _elements[14] - rhs._elements[14], _elements[15] - rhs._elements[15]
+	return{ elements_[0] - rhs.elements_[0], elements_[1] - rhs.elements_[1], elements_[2] - rhs.elements_[2], elements_[3] - rhs.elements_[3],
+		elements_[4] - rhs.elements_[4], elements_[5] - rhs.elements_[5], elements_[6] - rhs.elements_[6], elements_[7] - rhs.elements_[7],
+		elements_[8] - rhs.elements_[8], elements_[9] - rhs.elements_[9], elements_[10] - rhs.elements_[10], elements_[11] - rhs.elements_[11],
+		elements_[12] - rhs.elements_[12], elements_[13] - rhs.elements_[13], elements_[14] - rhs.elements_[14], elements_[15] - rhs.elements_[15]
 	};
 }
 
 // èÊéZ
 Matrix4	Matrix4::operator*(double a) const
 {
-	return{ _elements[0] * a, _elements[1] * a, _elements[2] * a, _elements[3] * a,
-		_elements[4] * a, _elements[5] * a, _elements[6] * a, _elements[7] * a,
-		_elements[8] * a, _elements[9] * a, _elements[10] * a, _elements[11] * a,
-		_elements[12] * a, _elements[13] * a, _elements[14] * a, _elements[15] * a
+	return{ elements_[0] * a, elements_[1] * a, elements_[2] * a, elements_[3] * a,
+		elements_[4] * a, elements_[5] * a, elements_[6] * a, elements_[7] * a,
+		elements_[8] * a, elements_[9] * a, elements_[10] * a, elements_[11] * a,
+		elements_[12] * a, elements_[13] * a, elements_[14] * a, elements_[15] * a
 	};
 }
 
@@ -37,10 +37,10 @@ Matrix4	Matrix4::operator*(double a) const
 Vector3	Matrix4::operator*(const Vector3& vector) const
 {
 	return{
-		_elements[0] * vector.getX() + _elements[1] * vector.getY() + _elements[2] * vector.getZ() + _elements[3] * vector.getW(),
-		_elements[4] * vector.getX() + _elements[5] * vector.getY() + _elements[6] * vector.getZ() + _elements[7] * vector.getW(),
-		_elements[8] * vector.getX() + _elements[9] * vector.getY() + _elements[10] * vector.getZ() + _elements[11] * vector.getW(),
-		_elements[12] * vector.getX() + _elements[13] * vector.getY() + _elements[14] * vector.getZ() + _elements[15] * vector.getW()
+		elements_[0] * vector.get_x() + elements_[1] * vector.get_y() + elements_[2] * vector.get_z() + elements_[3] * vector.get_w(),
+		elements_[4] * vector.get_x() + elements_[5] * vector.get_y() + elements_[6] * vector.get_z() + elements_[7] * vector.get_w(),
+		elements_[8] * vector.get_x() + elements_[9] * vector.get_y() + elements_[10] * vector.get_z() + elements_[11] * vector.get_w(),
+		elements_[12] * vector.get_x() + elements_[13] * vector.get_y() + elements_[14] * vector.get_z() + elements_[15] * vector.get_w()
 	};
 }
 
@@ -48,31 +48,31 @@ Vector3	Matrix4::operator*(const Vector3& vector) const
 Point3	Matrix4::operator*(const Point3& point) const
 {
 	return{
-		_elements[0] * point.getX() + _elements[1] * point.getY() + _elements[2] * point.getZ() + _elements[3] * point.getW(),
-		_elements[4] * point.getX() + _elements[5] * point.getY() + _elements[6] * point.getZ() + _elements[7] * point.getW(),
-		_elements[8] * point.getX() + _elements[9] * point.getY() + _elements[10] * point.getZ() + _elements[11] * point.getW(),
-		_elements[12] * point.getX() + _elements[13] * point.getY() + _elements[14] * point.getZ() + _elements[15] * point.getW()
+		elements_[0] * point.get_x() + elements_[1] * point.get_y() + elements_[2] * point.get_z() + elements_[3] * point.get_w(),
+		elements_[4] * point.get_x() + elements_[5] * point.get_y() + elements_[6] * point.get_z() + elements_[7] * point.get_w(),
+		elements_[8] * point.get_x() + elements_[9] * point.get_y() + elements_[10] * point.get_z() + elements_[11] * point.get_w(),
+		elements_[12] * point.get_x() + elements_[13] * point.get_y() + elements_[14] * point.get_z() + elements_[15] * point.get_w()
 	};
 }
 
 // êœ
 Matrix4	Matrix4::operator*(const Matrix4& rhs) const
 {
-	return{ _elements[0] * rhs._elements[0] + _elements[1] * rhs._elements[4] + _elements[2] * rhs._elements[8] + _elements[3] * rhs._elements[12],
-		_elements[0] * rhs._elements[1] + _elements[1] * rhs._elements[5] + _elements[2] * rhs._elements[9] + _elements[3] * rhs._elements[13],
-		_elements[0] * rhs._elements[2] + _elements[1] * rhs._elements[6] + _elements[2] * rhs._elements[10] + _elements[3] * rhs._elements[14],
-		_elements[0] * rhs._elements[3] + _elements[1] * rhs._elements[7] + _elements[2] * rhs._elements[11] + _elements[3] * rhs._elements[15],
-		_elements[4] * rhs._elements[0] + _elements[5] * rhs._elements[4] + _elements[6] * rhs._elements[8] + _elements[7] * rhs._elements[12],
-		_elements[4] * rhs._elements[1] + _elements[5] * rhs._elements[5] + _elements[6] * rhs._elements[9] + _elements[7] * rhs._elements[13],
-		_elements[4] * rhs._elements[2] + _elements[5] * rhs._elements[6] + _elements[6] * rhs._elements[10] + _elements[7] * rhs._elements[14],
-		_elements[4] * rhs._elements[3] + _elements[5] * rhs._elements[7] + _elements[6] * rhs._elements[11] + _elements[7] * rhs._elements[15],
-		_elements[8] * rhs._elements[0] + _elements[9] * rhs._elements[4] + _elements[10] * rhs._elements[8] + _elements[11] * rhs._elements[12],
-		_elements[8] * rhs._elements[1] + _elements[9] * rhs._elements[5] + _elements[10] * rhs._elements[9] + _elements[11] * rhs._elements[13],
-		_elements[8] * rhs._elements[2] + _elements[9] * rhs._elements[6] + _elements[10] * rhs._elements[10] + _elements[11] * rhs._elements[14],
-		_elements[8] * rhs._elements[3] + _elements[9] * rhs._elements[7] + _elements[10] * rhs._elements[11] + _elements[11] * rhs._elements[15],
-		_elements[12] * rhs._elements[0] + _elements[13] * rhs._elements[4] + _elements[14] * rhs._elements[8] + _elements[15] * rhs._elements[12],
-		_elements[12] * rhs._elements[1] + _elements[13] * rhs._elements[5] + _elements[14] * rhs._elements[9] + _elements[15] * rhs._elements[13],
-		_elements[12] * rhs._elements[2] + _elements[13] * rhs._elements[6] + _elements[14] * rhs._elements[10] + _elements[15] * rhs._elements[14],
-		_elements[12] * rhs._elements[3] + _elements[13] * rhs._elements[7] + _elements[14] * rhs._elements[11] + _elements[15] * rhs._elements[15]
+	return{ elements_[0] * rhs.elements_[0] + elements_[1] * rhs.elements_[4] + elements_[2] * rhs.elements_[8] + elements_[3] * rhs.elements_[12],
+		elements_[0] * rhs.elements_[1] + elements_[1] * rhs.elements_[5] + elements_[2] * rhs.elements_[9] + elements_[3] * rhs.elements_[13],
+		elements_[0] * rhs.elements_[2] + elements_[1] * rhs.elements_[6] + elements_[2] * rhs.elements_[10] + elements_[3] * rhs.elements_[14],
+		elements_[0] * rhs.elements_[3] + elements_[1] * rhs.elements_[7] + elements_[2] * rhs.elements_[11] + elements_[3] * rhs.elements_[15],
+		elements_[4] * rhs.elements_[0] + elements_[5] * rhs.elements_[4] + elements_[6] * rhs.elements_[8] + elements_[7] * rhs.elements_[12],
+		elements_[4] * rhs.elements_[1] + elements_[5] * rhs.elements_[5] + elements_[6] * rhs.elements_[9] + elements_[7] * rhs.elements_[13],
+		elements_[4] * rhs.elements_[2] + elements_[5] * rhs.elements_[6] + elements_[6] * rhs.elements_[10] + elements_[7] * rhs.elements_[14],
+		elements_[4] * rhs.elements_[3] + elements_[5] * rhs.elements_[7] + elements_[6] * rhs.elements_[11] + elements_[7] * rhs.elements_[15],
+		elements_[8] * rhs.elements_[0] + elements_[9] * rhs.elements_[4] + elements_[10] * rhs.elements_[8] + elements_[11] * rhs.elements_[12],
+		elements_[8] * rhs.elements_[1] + elements_[9] * rhs.elements_[5] + elements_[10] * rhs.elements_[9] + elements_[11] * rhs.elements_[13],
+		elements_[8] * rhs.elements_[2] + elements_[9] * rhs.elements_[6] + elements_[10] * rhs.elements_[10] + elements_[11] * rhs.elements_[14],
+		elements_[8] * rhs.elements_[3] + elements_[9] * rhs.elements_[7] + elements_[10] * rhs.elements_[11] + elements_[11] * rhs.elements_[15],
+		elements_[12] * rhs.elements_[0] + elements_[13] * rhs.elements_[4] + elements_[14] * rhs.elements_[8] + elements_[15] * rhs.elements_[12],
+		elements_[12] * rhs.elements_[1] + elements_[13] * rhs.elements_[5] + elements_[14] * rhs.elements_[9] + elements_[15] * rhs.elements_[13],
+		elements_[12] * rhs.elements_[2] + elements_[13] * rhs.elements_[6] + elements_[14] * rhs.elements_[10] + elements_[15] * rhs.elements_[14],
+		elements_[12] * rhs.elements_[3] + elements_[13] * rhs.elements_[7] + elements_[14] * rhs.elements_[11] + elements_[15] * rhs.elements_[15]
 	};
 }

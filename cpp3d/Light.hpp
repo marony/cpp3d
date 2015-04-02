@@ -9,17 +9,17 @@ class Light
 {
 public:
 	Light(const Point3& position)
-		: _position{ position }
+		: position_{ position }
 	{
 	}
 
-	Point3	getPosition() const
+	Point3	get_position() const
 	{
-		return	_position;
+		return	position_;
 	}
 
 	Color getDiffuseColor(const Color& color, const Polygon3& polygon) const;
 
 protected:
-	Point3	_position;
+	Point3	position_;
 };

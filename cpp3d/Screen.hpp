@@ -9,23 +9,23 @@ class Screen
 {
 public:
 	Screen(const Size& size, double scale)
-		: _size{ size }, _scale{ scale }
+		: size_{ size }, scale_{ scale }
 	{
 	}
 
-	Size	getSize() const
+	Size	get_size() const
 	{
-		return	_size;
+		return	size_;
 	}
-	double	getScale() const
+	double	get_scale() const
 	{
-		return	_scale;
+		return	scale_;
 	}
 
 	Point3	convertToScreen(const Point3& point) const;
 	Polygon3	convertToScreen(const Polygon3& polygon) const;
 
 protected:
-	Size	_size;
-	double	_scale;
+	Size	size_;
+	double	scale_;
 };

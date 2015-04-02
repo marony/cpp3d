@@ -6,11 +6,11 @@ class Point3
 {
 public:
 	Point3(double x = 0.0, double y = 0.0, double z = 0.0, double w = 1.0)
-		: _x{ x }, _y{ y }, _z{ z }, _w{ w }
+		: x_{ x }, y_{ y }, z_{ z }, w_{ w }
 	{
 	}
 	Point3(const Point3& rhs)
-		: Point3 { rhs._x, rhs._y, rhs._z, rhs._w }
+		: Point3 { rhs.x_, rhs.y_, rhs.z_, rhs.w_ }
 	{
 	}
 	Point3(const Vector3& rhs);
@@ -19,20 +19,20 @@ public:
 	{
 		if (this != &rhs)
 		{
-			_x = rhs._x;
-			_y = rhs._y;
-			_z = rhs._z;
-			_w = rhs._w;
+			x_ = rhs.x_;
+			y_ = rhs.y_;
+			z_ = rhs.z_;
+			w_ = rhs.w_;
 		}
 		return	*this;
 	}
 	bool	operator==(const Point3& rhs) const
 	{
 		return	(this == &rhs) ||
-			(_x == rhs._x &&
-			 _y == rhs._y &&
-			 _z == rhs._z &&
-			 _w == rhs._w);
+			(x_ == rhs.x_ &&
+			 y_ == rhs.y_ &&
+			 z_ == rhs.z_ &&
+			 w_ == rhs.w_);
 	}
 	bool	operator!=(const Point3& rhs) const
 	{
@@ -47,23 +47,23 @@ public:
 	// œZ
 	Point3	operator/(double a) const;
 
-	double	getX() const
+	double	get_x() const
 	{
-		return	_x;
+		return	x_;
 	}
-	double	getY() const
+	double	get_y() const
 	{
-		return	_y;
+		return	y_;
 	}
-	double	getZ() const
+	double	get_z() const
 	{
-		return	_z;
+		return	z_;
 	}
-	double	getW() const
+	double	get_w() const
 	{
-		return	_w;
+		return	w_;
 	}
 
 protected:
-	double	_x, _y, _z, _w;
+	double	x_, y_, z_, w_;
 };

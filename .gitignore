@@ -6,3 +6,5 @@ Debug/
 Release/
 ipch/
 Thumbs.db
+.DS_Store
+

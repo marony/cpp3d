@@ -9,36 +9,36 @@ class	Screen;
 class Camera
 {
 public:
-	Camera(const Point3& position, const Point3& lookAt, const Vector3& up, double near, double far)
-		: _position{ position }, _lookAt{ lookAt },
-		_up{ up }, _near{ near }, _far{ far }
+	Camera(const Point3& position, const Point3& look_at, const Vector3& up, double near, double far)
+		: position_{ position }, look_at_{ look_at },
+		up_{ up }, near_{ near }, far_{ far }
 	{
 	}
 
-	Point3	getPosition() const
+	Point3	get_position() const
 	{
-		return	_position;
+		return	position_;
 	}
-	Point3	getLookAt() const
+	Point3	get_look_at() const
 	{
-		return	_lookAt;
+		return	look_at_;
 	}
-	Vector3	getUp() const
+	Vector3	get_up() const
 	{
-		return	_up;
+		return	up_;
 	}
-	double	getNear() const
+	double	get_near() const
 	{
-		return	_near;
+		return	near_;
 	}
-	double	getFar() const
+	double	get_far() const
 	{
-		return	_far;
+		return	far_;
 	}
 
 	Vector3	direction() const
 	{
-		return	_lookAt - _position;
+		return	look_at_ - position_;
 	}
 
 	bool	isCull(const Polygon3& polygon) const
@@ -58,7 +58,7 @@ public:
 	Polygon3	perspective(const Polygon3& polygon) const;
 
 protected:
-	Point3	_position, _lookAt;
-	Vector3	_up;
-	double	_near, _far;
+	Point3	position_, look_at_;
+	Vector3	up_;
+	double	near_, far_;
 };

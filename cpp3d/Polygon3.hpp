@@ -13,36 +13,36 @@ public:
 	{
 	}
 	Polygon3(const Point3& p1, const Point3& p2, const Point3& p3)
-		: _p1{ p1 }, _p2{ p2 }, _p3{ p3 }
+		: p1_{ p1 }, p2_{ p2 }, p3_{ p3 }
 	{
 	}
 
-	Point3	getP1() const
+	Point3	get_p1() const
 	{
-		return	_p1;
+		return	p1_;
 	}
-	Point3	getP2() const
+	Point3	get_p2() const
 	{
-		return	_p2;
+		return	p2_;
 	}
-	Point3	getP3() const
+	Point3	get_p3() const
 	{
-		return	_p3;
+		return	p3_;
 	}
 
 	// 法線ベクトル
 	Vector3	normal() const
 	{
-		return	(_p2 - _p1).crossProduct(_p3 - _p1);
+		return	(p2_ - p1_).crossProduct(p3_ - p1_);
 	}
 
 	// アフィン変換
 	Polygon3	affin(const Matrix4& matrix) const
 	{
 		return	{
-			matrix * _p1,
-			matrix * _p2,
-			matrix * _p3
+			matrix * p1_,
+			matrix * p2_,
+			matrix * p3_
 		};
 	}
 
@@ -55,9 +55,9 @@ public:
 	{
 		//    Polygon3(p1 + vector, p2 + vector, p3 + vector)
 		auto matrix = Matrix4 {
-			1, 0, 0, vector.getX(),
-			0, 1, 0, vector.getY(),
-			0, 0, 1, vector.getZ(),
+			1, 0, 0, vector.get_x(),
+			0, 1, 0, vector.get_y(),
+			0, 0, 1, vector.get_z(),
 			0, 0, 0, 1
 		};
 		return	affin(matrix);
@@ -70,9 +70,9 @@ public:
 	Polygon3	scale(const Vector3& vector) const
 	{
 		auto matrix = Matrix4 {
-			vector.getX(), 0, 0, 0,
-			0, vector.getY(), 0, 0,
-			0, 0, vector.getZ(), 0,
+			vector.get_x(), 0, 0, 0,
+			0, vector.get_y(), 0, 0,
+			0, 0, vector.get_z(), 0,
 			0, 0, 0, 1
 		};
 		return	affin(matrix);
@@ -124,5 +124,5 @@ public:
 	}
 
 protected:
-	Point3	_p1, _p2, _p3;
+	Point3	p1_, p2_, p3_;
 };

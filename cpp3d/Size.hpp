@@ -3,23 +3,23 @@ class Size
 {
 public:
 	Size(int width = 0, int height = 0)
-		: _width{ width }, _height{ height }
+		: width_{ width }, height_{ height }
 	{
 	}
 	Size(const Size& rhs)
-		: _width{ rhs._width }, _height{ rhs._height }
+		: width_{ rhs.width_ }, height_{ rhs.height_ }
 	{
 	}
 
 	const Size&	operator=(const Size& rhs)
 	{
-		_width = rhs._width;
-		_height = rhs._height;
+		width_ = rhs.width_;
+		height_ = rhs.height_;
 	}
 	bool	operator==(const Size& rhs) const
 	{
 		return	(this == &rhs) ||
-			(_width == rhs._width && _height == rhs._height);
+			(width_ == rhs.width_ && height_ == rhs.height_);
 	}
 
 	bool	operator!=(const Size& rhs) const
@@ -27,15 +27,15 @@ public:
 		return !operator==(rhs);
 	}
 
-	int	getWidth() const
+	int	get_width() const
 	{
-		return	_width;
+		return	width_;
 	}
-	int	getHeight() const
+	int	get_height() const
 	{
-		return	_height;
+		return	height_;
 	}
 
 protected:
-	int	_width, _height;
+	int	width_, height_;
 };

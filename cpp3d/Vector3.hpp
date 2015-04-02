@@ -6,11 +6,11 @@ class Vector3
 {
 public:
 	Vector3(double x = 0.0, double y = 0.0, double z = 0.0, double w = 1.0)
-		: _x{ x }, _y{ y }, _z{ z }, _w{ w }
+		: x_{ x }, y_{ y }, z_{ z }, w_{ w }
 	{
 	}
 	Vector3(const Vector3& rhs)
-		: Vector3{ rhs._x, rhs._y, rhs._z, rhs._w }
+		: Vector3{ rhs.x_, rhs.y_, rhs.z_, rhs.w_ }
 	{
 	}
 	Vector3(const Point3& rhs);
@@ -19,20 +19,20 @@ public:
 	{
 		if (this != &rhs)
 		{
-			_x = rhs._x;
-			_y = rhs._y;
-			_z = rhs._z;
-			_w = rhs._w;
+			x_ = rhs.x_;
+			y_ = rhs.y_;
+			z_ = rhs.z_;
+			w_ = rhs.w_;
 		}
 		return	*this;
 	}
 	bool	operator==(const Vector3& rhs) const
 	{
 		return (this == &rhs) ||
-			(_x == rhs._x &&
-			 _y == rhs._y &&
-			 _z == rhs._z &&
-			 _w == rhs._w);
+			(x_ == rhs.x_ &&
+			 y_ == rhs.y_ &&
+			 z_ == rhs.z_ &&
+			 w_ == rhs.w_);
 	}
 	bool	operator!=(const Vector3& rhs) const
 	{
@@ -40,80 +40,80 @@ public:
 	}
 	operator Point3() const;
 
-	double	getX() const
+	double	get_x() const
 	{
-		return	_x;
+		return	x_;
 	}
-	double	getY() const
+	double	get_y() const
 	{
-		return	_y;
+		return	y_;
 	}
-	double	getZ() const
+	double	get_z() const
 	{
-		return	_z;
+		return	z_;
 	}
-	double	getW() const
+	double	get_w() const
 	{
-		return	_w;
+		return	w_;
 	}
 
 	// ƒxƒNƒgƒ‹‚Ì‘å‚«‚³‚ğæ“¾
 	double	length() const
 	{
-		return	sqrt(_x * _x + _y * _y + _z * _z);
+		return	sqrt(x_ * x_ + y_ * y_ + z_ * z_);
 	}
 	// ’PˆÊƒxƒNƒgƒ‹‚ğæ“¾
 	Vector3	normalize() const
 	{
-		return	Vector3 {
-			_x / length(),
-			_y / length(),
-			_z / length()
+		return	{
+			x_ / length(),
+			y_ / length(),
+			z_ / length()
 		};
 	}
 	// ‰ÁZ
 	Vector3	operator+(const Vector3& rhs) const
 	{
-		return	Vector3 {
-			_x + rhs._x,
-			_y + rhs._y,
-			_z + rhs._z
+		return	{
+			x_ + rhs.x_,
+			y_ + rhs.y_,
+			z_ + rhs.z_
 		};
 	}
 	// Œ¸Z
 	Vector3	operator-(const Vector3& rhs) const
 	{
 		return	{
-			_x - rhs._x,
-			_y - rhs._y,
-			_z - rhs._z
+			x_ - rhs.x_,
+			y_ - rhs.y_,
+			z_ - rhs.z_
 		};
 	}
 	// æZ
 	Vector3	operator*(double a) const
 	{
-		return	{ _x * a, _y * a, _z * a };
+		return	{ x_ * a, y_ * a, z_ * a };
 	}
 	// œZ
 	Vector3	operator/(double a) const
 	{
-		return	{ _x / a, _y / a, _z / a };
+		return	{ x_ / a, y_ / a, z_ / a };
 	}
 	// “àÏ
 	double	dotProduct(const Vector3& rhs) const
 	{
-		return	_x * rhs._x + _y * rhs._y + _z * rhs._z;
+		return	x_ * rhs.x_ + y_ * rhs.y_ + z_ * rhs.z_;
 	}
 	// ŠOÏ
 	Vector3	crossProduct(const Vector3& rhs) const
 	{
 		return	{
-			_y * rhs._z - _z * rhs._y,
-			_z * rhs._x - _x * rhs._z,
-			_x * rhs._y - _y * rhs._x
+			y_ * rhs.z_ - z_ * rhs.y_,
+			z_ * rhs.x_ - x_ * rhs.z_,
+			x_ * rhs.y_ - y_ * rhs.x_
 		};
 	}
 
 protected:
-	double	_x, _y, _z, _w;
+	double	x_, y_, z_, w_;
 };

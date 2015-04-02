@@ -4,33 +4,33 @@
 #include "SFML/Graphics.hpp"
 
 Point3::Point3(const Vector3& rhs)
-	: Point3{ rhs.getX(), rhs.getY(), rhs.getZ() }
+	: Point3{ rhs.get_x(), rhs.get_y(), rhs.get_z() }
 {
 }
 
 Point3::operator Vector3() const
 {
-	return	{ _x, _y, _z, _w };
+	return	{ x_, y_, z_, w_ };
 }
 
 Vector3	Point3::operator+(const Point3& rhs) const
 {
-	return	{ _x + rhs._x, _y + rhs._y, _z + rhs._z };
+	return	{ x_ + rhs.x_, y_ + rhs.y_, z_ + rhs.z_ };
 }
 
 Vector3	Point3::operator-(const Point3& rhs) const
 {
-	return	{ _x - rhs._x, _y - rhs._y, _z - rhs._z };
+	return	{ x_ - rhs.x_, y_ - rhs.y_, z_ - rhs.z_ };
 }
 
 // æZ
 Point3	Point3::operator*(double a) const
 {
-	return{ _x * a, _y * a, _z * a };
+	return{ x_ * a, y_ * a, z_ * a };
 }
 
 // œZ
 Point3	Point3::operator/(double a) const
 {
-	return{ _x / a, _y / a, _z / a };
+	return{ x_ / a, y_ / a, z_ / a };
 }
