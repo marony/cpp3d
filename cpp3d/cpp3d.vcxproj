@@ -92,7 +92,7 @@
     <ClInclude Include="Camera.hpp" />
     <ClInclude Include="Color.hpp" />
     <ClInclude Include="Light.hpp" />
-    <ClInclude Include="Matrix4.hpp" />
+    <ClInclude Include="Matrix.hpp" />
     <ClInclude Include="Point3.hpp" />
     <ClInclude Include="Polygon3.hpp" />
     <ClInclude Include="Screen.hpp" />
@@ -108,7 +108,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="cpp3d.cpp" />
     <ClCompile Include="Light.cpp" />
-    <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Point3.cpp" />
     <ClCompile Include="Polygon3.cpp" />
     <ClCompile Include="Screen.cpp" />

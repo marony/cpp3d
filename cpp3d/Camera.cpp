@@ -11,7 +11,7 @@ Polygon3	Camera::convertToView(const Polygon3& polygon) const
 	auto	tx = static_cast<Vector3>(get_position()).dotProduct(x) * -1;
 	auto	ty = static_cast<Vector3>(get_position()).dotProduct(y) * -1;
 	auto	tz = static_cast<Vector3>(get_position()).dotProduct(z) * -1;
-	auto	matrix = Matrix4 {
+	auto	matrix = Matrix<> {
 		x.get_x(), x.get_y(), x.get_z(), tx,
 		y.get_x(), y.get_y(), y.get_z(), ty,
 		z.get_x(), z.get_y(), z.get_z(), tz,

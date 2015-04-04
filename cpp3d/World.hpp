@@ -2,7 +2,7 @@
 
 class	Polygon3;
 class	Color;
-class	sf::RenderWindow;
+namespace sf {	class RenderWindow; }
 #include "Screen.hpp"
 #include "Camera.hpp"
 #include "Light.hpp"

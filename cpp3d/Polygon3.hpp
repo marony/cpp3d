@@ -1,10 +1,10 @@
 #pragma once
 
-class	sf::RenderWindow;
+namespace sf { class	RenderWindow; }
 #include "Vector3.hpp"
 #include "Point3.hpp"
 #include "Color.hpp"
-#include "Matrix4.hpp"
+#include "Matrix.hpp"
 
 class Polygon3
 {
@@ -37,7 +37,7 @@ public:
 	}
 
 	// ƒAƒtƒBƒ“•ÏŠ·
-	Polygon3	affin(const Matrix4& matrix) const
+	Polygon3	affin(const Matrix<>& matrix) const
 	{
 		return	{
 			matrix * p1_,
@@ -54,7 +54,7 @@ public:
 	Polygon3	move(const Vector3& vector) const
 	{
 		//    Polygon3(p1 + vector, p2 + vector, p3 + vector)
-		auto matrix = Matrix4 {
+		auto matrix = Matrix<> {
 			1, 0, 0, vector.get_x(),
 			0, 1, 0, vector.get_y(),
 			0, 0, 1, vector.get_z(),
@@ -69,7 +69,7 @@ public:
 	// | 0  | 0  | 0  | 1 |
 	Polygon3	scale(const Vector3& vector) const
 	{
-		auto matrix = Matrix4 {
+		auto matrix = Matrix<> {
 			vector.get_x(), 0, 0, 0,
 			0, vector.get_y(), 0, 0,
 			0, 0, vector.get_z(), 0,
@@ -84,7 +84,7 @@ public:
 	// | 0 | 0     | 0      | 1 |
 	Polygon3	rotateX(double r) const
 	{
-		auto matrix = Matrix4 {
+		auto matrix = Matrix<> {
 			1, 0, 0, 0,
 			0, cos(r), -sin(r), 0,
 			0, sin(r), cos(r), 0,
@@ -99,7 +99,7 @@ public:
 	// | 0      | 0 | 0     | 1 |
 	Polygon3	rotateY(double r) const
 	{
-		auto matrix = Matrix4 {
+		auto matrix = Matrix<> {
 			cos(r), 0, sin(r), 0,
 			0, 1, 0, 0,
 			-sin(r), 0, cos(r), 0,
@@ -114,7 +114,7 @@ public:
 	// | 0     | 0      | 0 | 1 |
 	Polygon3	rotateZ(double r) const
 	{
-		auto matrix = Matrix4 {
+		auto matrix = Matrix<> {
 			cos(r), -sin(r), 0, 0,
 			sin(r), cos(r), 0, 0,
 			0, 0, 1, 0,

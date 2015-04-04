@@ -5,10 +5,12 @@
 
 #pragma once
 
+#ifndef __APPLE__
 #include "targetver.h"
 
 #include <stdio.h>
 #include <tchar.h>
+#endif //__APPLE__
 
 
 

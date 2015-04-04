@@ -26,11 +26,11 @@ Vector3	Point3::operator-(const Point3& rhs) const
 // æZ
 Point3	Point3::operator*(double a) const
 {
-	return{ x_ * a, y_ * a, z_ * a };
+	return	{ x_ * a, y_ * a, z_ * a };
 }
 
 // œZ
 Point3	Point3::operator/(double a) const
 {
-	return{ x_ / a, y_ / a, z_ / a };
+	return	{ x_ / a, y_ / a, z_ / a };
 }

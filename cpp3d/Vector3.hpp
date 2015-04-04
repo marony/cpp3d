@@ -2,6 +2,8 @@
 
 class Point3;
 
+#include <math.h>
+
 class Vector3
 {
 public:
