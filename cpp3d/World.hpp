@@ -33,16 +33,16 @@ protected:
 	int	rotate_ = 0;
 	const double	R = 0.0;
 
-	// TODO: “Ç‚İ‚İ‚ÌÛ‚Éƒ‚ƒfƒ‹‚Ì‘å‚«‚³‚ğ‡‚í‚¹‚é
+	// TODO: èª­ã¿è¾¼ã¿ã®éš›ã«ãƒ¢ãƒ‡ãƒ«ã®å¤§ãã•ã‚’åˆã‚ã›ã‚‹
 	const double	SCALE = 2500.0;
-	// ƒXƒNƒŠ[ƒ“(‰æ–Ê)
+	// ã‚¹ã‚¯ãƒªãƒ¼ãƒ³(ç”»é¢)
 	Screen screen_ = Screen(Size(WIDTH, HEIGHT), SCALE);
-	// ƒJƒƒ‰
+	// ã‚«ãƒ¡ãƒ©
 	Camera	camera_ = Camera(Point3(0, 1.9, -100), Point3(0, 1.9, 0), Vector3(0, 1, 0), 10, 300);
-	// ŒõŒ¹
+	// å…‰æº
 	Light	light_ = Light(Point3(-500, 500, -500));
 
-	// ì‹Æ—p
+	// ä½œæ¥­ç”¨
 	std::vector<std::tuple<Polygon3, Color>>	workPolygons_ = std::vector<std::tuple<Polygon3, Color>>{};
 	std::vector<sf::Vertex>	workVertices_ = std::vector<sf::Vertex> {};
 

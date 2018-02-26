@@ -30,13 +30,13 @@ public:
 		return	p3_;
 	}
 
-	// –@üƒxƒNƒgƒ‹
+	// æ³•ç·šãƒ™ã‚¯ãƒˆãƒ«
 	Vector3	normal() const
 	{
 		return	(p2_ - p1_).crossProduct(p3_ - p1_);
 	}
 
-	// ƒAƒtƒBƒ“•ÏŠ·
+	// ã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›
 	Polygon3	affin(const Matrix<>& matrix) const
 	{
 		return	{
@@ -46,7 +46,7 @@ public:
 		};
 	}
 
-	// ˆÚ“®
+	// ç§»å‹•
 	// | 1 | 0 | 0 | tx |
 	// | 0 | 1 | 0 | ty |
 	// | 0 | 0 | 1 | tz |
@@ -62,7 +62,7 @@ public:
 		};
 		return	affin(matrix);
 	}
-	// Šg‘åEk¬A”½“]
+	// æ‹¡å¤§ãƒ»ç¸®å°ã€åè»¢
 	// | sx | 0  | 0  | 0 |
 	// | 0  | sy | 0  | 0 |
 	// | 0  | 0  | sz | 0 |
@@ -77,7 +77,7 @@ public:
 		};
 		return	affin(matrix);
 	}
-	// X²ü‚è‚É‰ñ“]
+	// Xè»¸å‘¨ã‚Šã«å›è»¢
 	// | 1 | 0     | 0      | 0 |
 	// | 0 | cos r | -sin r | 0 |
 	// | 0 | sin r | cos r  | 0 |
@@ -92,7 +92,7 @@ public:
 		};
 		return	affin(matrix);
 	}
-	// Y²ü‚è‚É‰ñ“]
+	// Yè»¸å‘¨ã‚Šã«å›è»¢
 	// | cos r  | 0 | sin r | 0 |
 	// | 0      | 1 | 0     | 0 |
 	// | -sin r | 0 | cos r | 0 |
@@ -107,7 +107,7 @@ public:
 		};
 		return	affin(matrix);
 	}
-	// Z²ü‚è‚É‰ñ“]
+	// Zè»¸å‘¨ã‚Šã«å›è»¢
 	// | cos r | -sin r | 0 | 0 |
 	// | sin r | cos r  | 0 | 0 |
 	// | 0     | 0      | 1 | 0 |

@@ -5,7 +5,7 @@
 
 Point3	Screen::convertToScreen(const Point3& point) const
 {
-	// 投影面をディスプレイに合わせる
+	// 謚募ｽｱ髱｢繧偵ョ繧｣繧ｹ繝励Ξ繧､縺ｫ蜷医ｏ縺帙ｋ
 	return	{
 		size_.get_width() / 2 + point.get_x() * scale_,
 		size_.get_height() / 2 - point.get_y() * scale_,
@@ -14,7 +14,7 @@ Point3	Screen::convertToScreen(const Point3& point) const
 }
 Polygon3	Screen::convertToScreen(const Polygon3& polygon) const
 {
-	// ポリゴンをスクリーン(画面)の座標に合わせる
+	// 繝昴Μ繧ｴ繝ｳ繧偵せ繧ｯ繝ｪ繝ｼ繝ｳ(逕ｻ髱｢)縺ｮ蠎ｧ讓吶↓蜷医ｏ縺帙ｋ
 	return	{
 		convertToScreen(polygon.get_p1()),
 		convertToScreen(polygon.get_p2()),

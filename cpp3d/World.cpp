@@ -17,10 +17,10 @@ void	World::draw(sf::RenderWindow& window)
 {
 	window.clear();
 	workPolygons_.clear();
-	// ‘Sƒ|ƒŠƒSƒ“ŒvZ
+	// å…¨ãƒãƒªã‚´ãƒ³è¨ˆç®—
 	std::for_each(std::begin(polygons_), std::end(polygons_),
 		[&](const std::tuple<Polygon3, Color>& tuple) { draw(tuple, workPolygons_); });
-	// ‰“‚¢‡‚É•À‚Ñ‘Ö‚¦‚é
+	// é ã„é †ã«ä¸¦ã³æ›¿ãˆã‚‹
 	std::sort(std::begin(workPolygons_), std::end(workPolygons_),
 		[&](const std::tuple<Polygon3, Color>& lhs, const std::tuple<Polygon3, Color>& rhs){
 		const auto&	polygon1 = std::get<0>(lhs);
@@ -28,7 +28,7 @@ void	World::draw(sf::RenderWindow& window)
 		return	polygon1.get_p1().get_z() + polygon1.get_p2().get_z() + polygon1.get_p3().get_z() >
 			polygon2.get_p1().get_z() + polygon2.get_p2().get_z() + polygon2.get_p3().get_z();
 	});
-	// SFML—p‚Ì’¸“_ƒŠƒXƒgì¬
+	// SFMLç”¨ã®é ‚ç‚¹ãƒªã‚¹ãƒˆä½œæˆ
 	workVertices_.clear();
 	std::for_each(std::begin(workPolygons_), std::end(workPolygons_),
 		[&](const std::tuple<Polygon3, Color>& tuple){
@@ -55,7 +55,7 @@ void	World::draw(sf::RenderWindow& window)
 			}, color2
 		});
 	});
-	// •`‰æ
+	// æç”»
 	window.draw(&workVertices_[0], workVertices_.size(), sf::Triangles);
 	window.display();
 }
@@ -64,19 +64,19 @@ void	World::draw(const std::tuple<Polygon3, Color>& tuple, std::vector<std::tupl
 {
 	auto	polygon = std::get<0>(std::move(tuple));
 	auto	color = std::get<1>(std::move(tuple));
-	// ƒ|ƒŠƒSƒ“ŒQ‚ğ“Š‰e–Ê‚ÌÀ•W‚É•ÏŠ·
+	// ãƒãƒªã‚´ãƒ³ç¾¤ã‚’æŠ•å½±é¢ã®åº§æ¨™ã«å¤‰æ›
 	polygon = polygon.rotateX(R / 360 * 2 * M_PI).
 		rotateY((double)rotate_ / 360 * 2 * M_PI);
-	// ƒJƒŠƒ“ƒO(ƒJƒƒ‰‚©‚çŒ©‚Ä— –Ê‚Ìƒ|ƒŠƒSƒ“‚ÍÈ—ª)
+	// ã‚«ãƒªãƒ³ã‚°(ã‚«ãƒ¡ãƒ©ã‹ã‚‰è¦‹ã¦è£é¢ã®ãƒãƒªã‚´ãƒ³ã¯çœç•¥)
 	if (!camera_.isCull(polygon))
 	{
-		// ŠgUŒõ‚ÌŒvZ
+		// æ‹¡æ•£å…‰ã®è¨ˆç®—
 		color = light_.getDiffuseColor(color, polygon);
-		// ƒrƒ…[ƒ|[ƒg•ÏŠ·
+		// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆå¤‰æ›
 		polygon = camera_.convertToView(polygon);
-		// Ë‰e•ÏŠ·
+		// å°„å½±å¤‰æ›
 		polygon = camera_.projection(polygon, screen_);
-		// ‰“‹ßŠ´
+		// é è¿‘æ„Ÿ
 		if (polygon.get_p1().get_z() >= camera_.get_near() &&
 			polygon.get_p1().get_z() <= camera_.get_far() &&
 			polygon.get_p2().get_z() >= camera_.get_near() &&
@@ -84,7 +84,7 @@ void	World::draw(const std::tuple<Polygon3, Color>& tuple, std::vector<std::tupl
 			polygon.get_p3().get_z() >= camera_.get_near() &&
 			polygon.get_p3().get_z() <= camera_.get_far())
 		{
-			// ƒXƒNƒŠ[ƒ“•ÏŠ·
+			// ã‚¹ã‚¯ãƒªãƒ¼ãƒ³å¤‰æ›
 			polygon = screen_.convertToScreen(polygon);
 			polygons.push_back(std::make_tuple(polygon, color));
 		}

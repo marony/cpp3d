@@ -23,13 +23,13 @@ Vector3	Point3::operator-(const Point3& rhs) const
 	return	{ x_ - rhs.x_, y_ - rhs.y_, z_ - rhs.z_ };
 }
 
-// æZ
+// ä¹—ç®—
 Point3	Point3::operator*(double a) const
 {
 	return	{ x_ * a, y_ * a, z_ * a };
 }
 
-// œZ
+// é™¤ç®—
 Point3	Point3::operator/(double a) const
 {
 	return	{ x_ / a, y_ / a, z_ / a };

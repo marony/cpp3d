@@ -42,9 +42,9 @@ public:
 
 	Vector3	operator+(const Point3& rhs) const;
 	Vector3	operator-(const Point3& rhs) const;
-	// æZ
+	// ä¹—ç®—
 	Point3	operator*(double a) const;
-	// œZ
+	// é™¤ç®—
 	Point3	operator/(double a) const;
 
 	double	get_x() const

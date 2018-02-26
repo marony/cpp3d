@@ -2,7 +2,7 @@
 #include "Camera.hpp"
 #include "Screen.hpp"
 
-// ビューポート変換
+// 繝薙Η繝ｼ繝昴�ｼ繝亥､画鋤
 Polygon3	Camera::convertToView(const Polygon3& polygon) const
 {
 	auto	z = direction().normalize();
@@ -21,7 +21,7 @@ Polygon3	Camera::convertToView(const Polygon3& polygon) const
 	return	polygon2;
 }
 
-// 投影変換
+// 謚募ｽｱ螟画鋤
 Point3	Camera::projection(const Point3& point, const Screen& screen) const
 {
 	return	{
@@ -32,7 +32,7 @@ Point3	Camera::projection(const Point3& point, const Screen& screen) const
 	};
 }
 
-// 投影変換
+// 謚募ｽｱ螟画鋤
 Polygon3	Camera::projection(const Polygon3& polygon, const Screen& screen) const
 {
 	return	{

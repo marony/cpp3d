@@ -6,7 +6,7 @@
 
 Color Light::getDiffuseColor(const Color& color, const Polygon3& polygon) const
 {
-	// ŠgUŒõ‚ÌŒvZ(ƒ‰ƒ“ƒo[ƒh‚Ì—]Œ·‘¥)
+	// æ‹¡æ•£å…‰ã®è¨ˆç®—(ãƒ©ãƒ³ãƒãƒ¼ãƒ‰ã®ä½™å¼¦å‰‡)
 	auto L = (position_ - polygon.get_p1()).normalize();
 	auto cosa = L.dotProduct(polygon.normal().normalize());
 	auto r = static_cast<int>(color.get_r() * (cosa >= 0 ? cosa * 0.9 : 0.0) + 0.1);

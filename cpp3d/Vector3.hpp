@@ -59,12 +59,12 @@ public:
 		return	w_;
 	}
 
-	// ƒxƒNƒgƒ‹‚Ì‘å‚«‚³‚ğæ“¾
+	// ãƒ™ã‚¯ãƒˆãƒ«ã®å¤§ãã•ã‚’å–å¾—
 	double	length() const
 	{
 		return	sqrt(x_ * x_ + y_ * y_ + z_ * z_);
 	}
-	// ’PˆÊƒxƒNƒgƒ‹‚ğæ“¾
+	// å˜ä½ãƒ™ã‚¯ãƒˆãƒ«ã‚’å–å¾—
 	Vector3	normalize() const
 	{
 		return	{
@@ -73,7 +73,7 @@ public:
 			z_ / length()
 		};
 	}
-	// ‰ÁZ
+	// åŠ ç®—
 	Vector3	operator+(const Vector3& rhs) const
 	{
 		return	{
@@ -82,7 +82,7 @@ public:
 			z_ + rhs.z_
 		};
 	}
-	// Œ¸Z
+	// æ¸›ç®—
 	Vector3	operator-(const Vector3& rhs) const
 	{
 		return	{
@@ -91,22 +91,22 @@ public:
 			z_ - rhs.z_
 		};
 	}
-	// æZ
+	// ä¹—ç®—
 	Vector3	operator*(double a) const
 	{
 		return	{ x_ * a, y_ * a, z_ * a };
 	}
-	// œZ
+	// é™¤ç®—
 	Vector3	operator/(double a) const
 	{
 		return	{ x_ / a, y_ / a, z_ / a };
 	}
-	// “àÏ
+	// å†…ç©
 	double	dotProduct(const Vector3& rhs) const
 	{
 		return	x_ * rhs.x_ + y_ * rhs.y_ + z_ * rhs.z_;
 	}
-	// ŠOÏ
+	// å¤–ç©
 	Vector3	crossProduct(const Vector3& rhs) const
 	{
 		return	{

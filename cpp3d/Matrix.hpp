@@ -10,7 +10,7 @@ class Matrix
 public:
 	static const int	SIZE = N * N;
 
-	// ˆÈ‰º‚Ì‡˜‚Å—v‘f‚ğ“n‚·
+	// ä»¥ä¸‹ã®é †åºã§è¦ç´ ã‚’æ¸¡ã™
 	// |  0 |  1 |  2 |  3 |
 	// |  4 |  5 |  6 |  7 |
 	// |  8 |  9 | 10 | 11 |
@@ -29,24 +29,24 @@ public:
 			elements_[i] = init[i];
 	}
 
-	// s—ñ“¯m‚Ì‰ÁZ
+	// è¡Œåˆ—åŒå£«ã®åŠ ç®—
 	Matrix	operator+(const Matrix& rhs) const;
-	// s—ñ“¯m‚ÌŒ¸Z
+	// è¡Œåˆ—åŒå£«ã®æ¸›ç®—
 	Matrix	operator-(const Matrix& rhs) const;
-	// æZ
+	// ä¹—ç®—
 	Matrix	operator*(double a) const;
-	// æZ
+	// ä¹—ç®—
 	Vector3	operator*(const Vector3& vector) const;
-	// æZ
+	// ä¹—ç®—
 	Point3	operator*(const Point3& point) const;
-	// æZ
+	// ä¹—ç®—
 	Matrix	operator*(const Matrix& rhs) const;
 
 protected:
 	T	elements_[SIZE];
 };
 
-// s—ñ“¯m‚Ì‰ÁZ
+// è¡Œåˆ—åŒå£«ã®åŠ ç®—
 template<typename T, int N>
 Matrix<T, N>	Matrix<T, N>::operator+(const Matrix& rhs) const
 {
@@ -56,7 +56,7 @@ Matrix<T, N>	Matrix<T, N>::operator+(const Matrix& rhs) const
 	return	matrix;
 }
 
-// s—ñ“¯m‚ÌŒ¸Z
+// è¡Œåˆ—åŒå£«ã®æ¸›ç®—
 template<typename T, int N>
 Matrix<T, N>	Matrix<T, N>::operator-(const Matrix& rhs) const
 {
@@ -66,7 +66,7 @@ Matrix<T, N>	Matrix<T, N>::operator-(const Matrix& rhs) const
 	return	matrix;
 }
 
-// ­”‚Æ‚ÌæZ
+// å°‘æ•°ã¨ã®ä¹—ç®—
 template<typename T, int N>
 Matrix<T, N>	Matrix<T, N>::operator*(double a) const
 {
@@ -76,7 +76,7 @@ Matrix<T, N>	Matrix<T, N>::operator*(double a) const
 	return	matrix;
 }
 
-// ƒxƒNƒgƒ‹‚Æ‚ÌæZ
+// ãƒ™ã‚¯ãƒˆãƒ«ã¨ã®ä¹—ç®—
 template<typename T, int N>
 Vector3	Matrix<T, N>::operator*(const Vector3& vector) const
 {
@@ -96,7 +96,7 @@ Vector3	Matrix<T, N>::operator*(const Vector3& vector) const
 	return{ buf[0], buf[1], buf[2], buf[3] };
 }
 
-// À•W‚Æ‚ÌæZ
+// åº§æ¨™ã¨ã®ä¹—ç®—
 template<typename T, int N>
 Point3	Matrix<T, N>::operator*(const Point3& point) const
 {
@@ -116,7 +116,7 @@ Point3	Matrix<T, N>::operator*(const Point3& point) const
 	return{ buf[0], buf[1], buf[2], buf[3] };
 }
 
-// s—ñ“¯m‚ÌæZ
+// è¡Œåˆ—åŒå£«ã®ä¹—ç®—
 template<typename T, int N>
 Matrix<T, N>	Matrix<T, N>::operator*(const Matrix& rhs) const
 {

@@ -9,7 +9,7 @@
 
 std::vector<std::tuple<Polygon3, Color>>	Util::objToPolygons(const std::string& fileName)
 {
-	// 初期データ(objファイル)読み込み
+	// 蛻晄悄繝�繝ｼ繧ｿ(obj繝輔ぃ繧､繝ｫ)隱ｭ縺ｿ霎ｼ縺ｿ
 	auto	points = std::vector<Point3> {};
 	auto	polygons = std::vector<std::tuple<Polygon3, Color>> {};
 
@@ -28,7 +28,7 @@ std::vector<std::tuple<Polygon3, Color>>	Util::objToPolygons(const std::string& 
 		switch (ch)
 		{
 		case	'v':
-			// 頂点
+			// 鬆らせ
 			{
 				double	x, y, z;
 				ss >> x;
@@ -38,7 +38,7 @@ std::vector<std::tuple<Polygon3, Color>>	Util::objToPolygons(const std::string& 
 			}
 			break;
 		case	'f':
-			// ポリゴン
+			// 繝昴Μ繧ｴ繝ｳ
 			{
 				int	a, b, c, d, dummy;
 				ss >> a;
